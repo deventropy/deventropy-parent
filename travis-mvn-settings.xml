@@ -11,19 +11,47 @@
 	</servers>
 	<profiles>
 		<profile>
+			<id>deventropy-travis-ci</id>
 			<repositories>
 				<repository>
 					<snapshots>
 						<enabled>false</enabled>
 					</snapshots>
 					<id>central</id>
-					<name>libs-release</name>
-					<url>https://oss.jfrog.org/artifactory/libs-release</url>
+					<name>Maven Central</name>
+					<url>https://repo1.maven.org/maven2</url>
 				</repository>
 				<repository>
-					<snapshots />
-					<id>snapshots</id>
-					<name>libs-snapshot</name>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<id>jfrog-releases</id>
+					<name>JFrog OSS Releases</name>
+					<url>https://oss.jfrog.org/artifactory/libs-release</url>
+				</repository>
+				<!-- Snapshot repositories -->
+				<repository>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+					<id>apache-snapshots</id>
+					<name>Apache Repository (Snapshots)</name>
+					<url>https://repository.apache.org/snapshots</url>
+				</repository>
+				<repository>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+					<id>sonatype-snapshots</id>
+					<name>sonatype-snapshots</name>
+					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+				</repository>
+				<repository>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+					<id>jfrog-snapshots</id>
+					<name>JFrog OSS Snapshots</name>
 					<url>https://oss.jfrog.org/artifactory/libs-snapshot</url>
 				</repository>
 			</repositories>
@@ -33,20 +61,46 @@
 						<enabled>false</enabled>
 					</snapshots>
 					<id>central</id>
-					<name>plugins-release</name>
-					<url>https://oss.jfrog.org/artifactory/plugins-release</url>
+					<name>Maven Central</name>
+					<url>https://repo1.maven.org/maven2</url>
 				</pluginRepository>
 				<pluginRepository>
-					<snapshots />
-					<id>snapshots</id>
-					<name>plugins-snapshot</name>
-					<url>https://oss.jfrog.org/artifactory/plugins-snapshot</url>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+					<id>jfrog-releases</id>
+					<name>JFrog OSS Releases</name>
+					<url>https://oss.jfrog.org/artifactory/libs-release</url>
+				</pluginRepository>
+				<!-- Snapshot repositories -->
+				<pluginRepository>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+					<id>apache-snapshots</id>
+					<name>Apache Repository (Snapshots)</name>
+					<url>https://repository.apache.org/snapshots</url>
+				</pluginRepository>
+				<pluginRepository>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+					<id>sonatype-snapshots</id>
+					<name>sonatype-snapshots</name>
+					<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+				</pluginRepository>
+				<pluginRepository>
+					<snapshots>
+						<enabled>true</enabled>
+					</snapshots>
+					<id>jfrog-snapshots</id>
+					<name>JFrog OSS Snapshots</name>
+					<url>https://oss.jfrog.org/artifactory/libs-snapshot</url>
 				</pluginRepository>
 			</pluginRepositories>
-			<id>artifactory</id>
 		</profile>
 	</profiles>
 	<activeProfiles>
-		<activeProfile>artifactory</activeProfile>
+		<activeProfile>deventropy-travis-ci</activeProfile>
 	</activeProfiles>
 </settings>
