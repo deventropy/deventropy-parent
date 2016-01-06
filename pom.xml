@@ -53,6 +53,7 @@ limitations under the License.
 			<id>bindul</id>
 			<name>Bindul Bhowmik</name>
 			<url>http://blog.bindul.name/</url>
+			<email>http://goo.gl/J8TIhH</email>
 			<roles>
 				<role>Project Creator</role>
 				<role>Developer</role>
@@ -81,6 +82,13 @@ limitations under the License.
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-checkstyle-plugin</artifactId>
 					<version>2.17</version>
+					<dependencies>
+						<dependency>
+							<groupId>com.puppycrawl.tools</groupId>
+							<artifactId>checkstyle</artifactId>
+							<version>6.14</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -123,6 +131,25 @@ limitations under the License.
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-jar-plugin</artifactId>
 					<version>2.6</version>
+					<configuration>
+						<archive>
+							<index>true</index>
+							<compress>true</compress>
+							<manifestEntries>
+								<Specification-Title>DevEntropy ${project.name}</Specification-Title>
+								<Specification-Version>${project.version}</Specification-Version>
+								<Specification-Vendor>Development Entropy (deventropy.org)</Specification-Vendor>
+								<Implementation-Title>DevEntropy ${project.name}</Implementation-Title>
+								<Implementation-Version>${project.version}</Implementation-Version>
+								<Implementation-Vendor>Development Entropy (deventropy.org)</Implementation-Vendor>
+								<Implementation-Vendor-Id>org.deventropy</Implementation-Vendor-Id>
+								<!-- from buildnumber plugin and properties -->
+								<Implementation-Build>${implementation.build}</Implementation-Build>
+								<X-Compile-Source-JDK>${maven.compiler.source}</X-Compile-Source-JDK>
+								<X-Compile-Target-JDK>${maven.compiler.target}</X-Compile-Target-JDK>
+							</manifestEntries>
+						</archive>
+					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -147,6 +174,12 @@ limitations under the License.
 						<links>
 							<link>http://docs.oracle.com/javase/7/docs/api/</link>
 						</links>
+						<archive>
+							<manifest>
+								<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+								<addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+							</manifest>
+						</archive>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -210,17 +243,19 @@ limitations under the License.
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-plugin</artifactId>
-					<version>2.19</version>
+					<version>2.19.1</version>
 					<configuration>
 						<parallel>classes</parallel>
 						<threadCount>10</threadCount>
+						<forkCount>2C</forkCount>
+						<reuseForks>${test.reuse.forks}</reuseForks>
 						<redirectTestOutputToFile>true</redirectTestOutputToFile>
 					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-surefire-report-plugin</artifactId>
-					<version>2.19</version>
+					<version>2.19.1</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -244,6 +279,11 @@ limitations under the License.
 				</plugin>
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>buildnumber-maven-plugin</artifactId>
+					<version>1.4</version>
+				</plugin>
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>versions-maven-plugin</artifactId>
 					<version>2.2</version>
 				</plugin>
@@ -251,6 +291,21 @@ limitations under the License.
 					<groupId>org.jacoco</groupId>
 					<artifactId>jacoco-maven-plugin</artifactId>
 					<version>0.7.5.201505241946</version>
+				</plugin>
+				<!--  See http://docbkx-tools.sourceforge.net/docbkx-samples/manual.html -->
+				<plugin>
+					<groupId>com.agilejava.docbkx</groupId>
+					<artifactId>docbkx-maven-plugin</artifactId>
+					<version>2.0.16</version>
+					<dependencies>
+						<dependency>
+							<groupId>net.sf.docbook</groupId>
+							<artifactId>docbook-xml</artifactId>
+							<version>5.0-all</version>
+							<classifier>resources</classifier>
+							<type>zip</type>
+						</dependency>
+					</dependencies>
 				</plugin>
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
@@ -310,12 +365,19 @@ limitations under the License.
 				<version>4.12</version>
 				<type>jar</type>
 			</dependency>
+			<dependency>
+				<groupId>net.jcip</groupId>
+				<artifactId>jcip-annotations</artifactId>
+				<version>1.0</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<properties>
 		<dev.java.version>1.7</dev.java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<log4j.version>2.4.1</log4j.version>
+		<log4j.version>2.5</log4j.version>
+		<test.reuse.forks>true</test.reuse.forks>
+		<implementation.build>${scmBranch}@r${buildNumber}; ${maven.build.timestamp}</implementation.build>
 	</properties>
 	<distributionManagement>
 		<snapshotRepository>
