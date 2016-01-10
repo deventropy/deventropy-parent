@@ -292,21 +292,6 @@ limitations under the License.
 					<artifactId>jacoco-maven-plugin</artifactId>
 					<version>0.7.5.201505241946</version>
 				</plugin>
-				<!--  See http://docbkx-tools.sourceforge.net/docbkx-samples/manual.html -->
-				<plugin>
-					<groupId>com.agilejava.docbkx</groupId>
-					<artifactId>docbkx-maven-plugin</artifactId>
-					<version>2.0.16</version>
-					<dependencies>
-						<dependency>
-							<groupId>net.sf.docbook</groupId>
-							<artifactId>docbook-xml</artifactId>
-							<version>5.0-all</version>
-							<classifier>resources</classifier>
-							<type>zip</type>
-						</dependency>
-					</dependencies>
-				</plugin>
 				<!--This plugin's configuration is used to store Eclipse m2e settings 
 					only. It has no influence on the Maven build itself. -->
 				<plugin>
@@ -525,3 +510,4 @@ limitations under the License.
 		<module>deventropy-cq-config</module>
 	</modules>
 </project>
+
