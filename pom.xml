@@ -85,14 +85,14 @@ limitations under the License.
 						<dependency>
 							<groupId>com.puppycrawl.tools</groupId>
 							<artifactId>checkstyle</artifactId>
-							<version>6.14</version>
+							<version>6.15</version>
 						</dependency>
 					</dependencies>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-compiler-plugin</artifactId>
-					<version>3.3</version>
+					<version>3.5.1</version>
 					<inherited>true</inherited>
 					<configuration>
 						<optimize>true</optimize>
@@ -125,6 +125,11 @@ limitations under the License.
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-install-plugin</artifactId>
 					<version>2.5.2</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-linkcheck-plugin</artifactId>
+					<version>1.2</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -163,7 +168,8 @@ limitations under the License.
 						<id>attach-javadocs</id> <phase>verify</phase> <goals> <goal>jar</goal> </goals> 
 						</execution> </executions> -->
 					<configuration>
-						<bottom><![CDATA[Copyright &#169; {inceptionYear}-{currentYear} Development Entropy (deventropy.org) Contributors]]></bottom>
+						<bottom><![CDATA[Copyright &#169; ${project.inceptionYear}-{currentYear} Development Entropy (deventropy.org) Contributors]]></bottom>
+						<header><![CDATA[<em><a href="${project.url}">${project.name}</a></em> ver. ${project.version}]]></header>
 						<charset>${project.build.sourceEncoding}</charset>
 						<javadocVersion>1.7</javadocVersion>
 						<keywords>true</keywords>
