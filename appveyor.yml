@@ -85,7 +85,7 @@ install:
 platform: Any CPU
 
 build_script:
-  - mvn clean package -DskipTest -Dmaven.javadoc.skip=true --batch-mode --show-version --settings %DENT_APPV_MVN_SETTINGS_DIR%\travis-mvn-settings.xml
+  - mvn clean package -DskipTests=true -Dmaven.javadoc.skip=true --batch-mode --show-version --settings %DENT_APPV_MVN_SETTINGS_DIR%\travis-mvn-settings.xml
 
 #---------------------------------#
 #       tests configuration       #

@@ -209,6 +209,8 @@ limitations under the License.
 					<configuration>
 						<addSchema>true</addSchema>
 						<autoVersionSubmodules>true</autoVersionSubmodules>
+						<!-- Since we are in Git, don't automatically push changes (chance to roll back) -->
+						<pushChanges>false</pushChanges>
 						<releaseProfiles>oss-release,oss-release-prop,github-oss-release,github-oss-release-prop</releaseProfiles>
 					</configuration>
 				</plugin>
@@ -228,12 +230,12 @@ limitations under the License.
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-site-plugin</artifactId>
-					<version>3.4</version>
+					<version>3.5</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-source-plugin</artifactId>
-					<version>2.4</version>
+					<version>3.0.0</version>
 					<!-- This should be enabled by the release plugin
 						<executions>
 							<execution> 
@@ -295,7 +297,7 @@ limitations under the License.
 				<plugin>
 					<groupId>org.jacoco</groupId>
 					<artifactId>jacoco-maven-plugin</artifactId>
-					<version>0.7.5.201505241946</version>
+					<version>0.7.6.201602180812</version>
 				</plugin>
 				<!-- Create code coverage reports and submit them to coveralls.io. -->
 				<plugin>
