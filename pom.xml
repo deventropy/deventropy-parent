@@ -230,7 +230,8 @@ limitations under the License.
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-site-plugin</artifactId>
-					<version>3.5</version>
+					<!-- Have to stick with 3.4 for now. See https://github.com/andriusvelykis/reflow-maven-skin/issues/49 -->
+					<version>3.4</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
