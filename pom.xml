@@ -85,7 +85,7 @@ limitations under the License.
 						<dependency>
 							<groupId>com.puppycrawl.tools</groupId>
 							<artifactId>checkstyle</artifactId>
-							<version>6.15</version>
+							<version>6.16</version>
 						</dependency>
 					</dependencies>
 				</plugin>
@@ -329,6 +329,17 @@ limitations under the License.
 								</pluginExecution>
 							</pluginExecutions>
 						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>com.versioneye</groupId>
+					<artifactId>versioneye-maven-plugin</artifactId>
+					<version>3.9.0</version>
+					<configuration>
+						<apiKey>${env.VERSIONEYE_REPO_KEY}</apiKey>
+						<nameStrategy>name</nameStrategy>
+						<organisation>deventropy</organisation>
+						<team>Owners</team>
 					</configuration>
 				</plugin>
 			</plugins>
