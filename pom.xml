@@ -18,7 +18,7 @@ limitations under the License.
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.deventropy.parent</groupId>
 	<artifactId>deventropy-parent</artifactId>
-	<version>1.0-beta.1-SNAPSHOT</version>
+	<version>1.0-alpha.site.3.6.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<name>Development Entropy Projects :: Parent POM</name>
 	<description>Parent POM for Deventropy, Infix, etc. projects</description>
@@ -230,8 +230,7 @@ limitations under the License.
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-site-plugin</artifactId>
-					<!-- Have to stick with 3.4 for now. See https://github.com/andriusvelykis/reflow-maven-skin/issues/49 -->
-					<version>3.4</version>
+					<version>3.6</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
