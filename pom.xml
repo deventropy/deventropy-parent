@@ -195,6 +195,7 @@ limitations under the License.
 						<linkXRef>false</linkXRef>
 						<sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
 						<targetJdk>${dev.java.version}</targetJdk>
+						<skipEmptyReport>false</skipEmptyReport>
 					</configuration>
 				</plugin>
 				<plugin>
