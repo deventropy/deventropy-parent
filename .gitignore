@@ -10,3 +10,4 @@ buildNumber.properties
 .classpath
 .pmd
 .settings/
+bin/
